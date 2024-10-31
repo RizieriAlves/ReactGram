@@ -1,0 +1,7 @@
+.container {
+  width: 100vw;
+  min-height: 70vh;
+  display: block;
+  padding: 0.1em 1em;
+  padding-bottom: 75px;
+}

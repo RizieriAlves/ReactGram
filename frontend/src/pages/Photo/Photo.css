@@ -1,0 +1,85 @@
+#photouser {
+  width: 55vw;
+  margin: 50px auto;
+  max-height: 70vh;
+  padding: 20px;
+  background-color: var(--background_divs);
+  color: white;
+  display: flex;
+  box-sizing: border-box;
+  overflow-y: auto;
+  border-radius: 5px;
+  border: 2px solid var(--border);
+  & a {
+    color: var(--text-color);
+  }
+}
+
+#photouser img {
+  width: 500px;
+}
+
+.photo img {
+  padding: 0px 20px;
+  border-right: 2px solid var(--border);
+  margin-right: 2vw;
+}
+
+#comment {
+  margin-top: 10px;
+  display: flex;
+  gap: 5px;
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+
+  & input {
+    font-size: 1.2rem;
+  }
+}
+
+#like {
+  font-size: 1.3em;
+  margin: 5px;
+}
+
+#photouser .photocomment {
+  width: 100px;
+}
+
+.comments {
+  overflow-y: auto;
+  width: 100%;
+}
+
+.comment {
+  display: flex;
+
+  border-bottom: 1px solid var(--border);
+  & span {
+    margin-left: 10px;
+  }
+}
+
+.nophotos {
+  text-align: center;
+  margin: 30px auto;
+}
+
+.nophotos a {
+  color: aqua;
+}
+
+#likelist {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  & * {
+    text-align: left;
+  }
+}
+
+.closebutton {
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,17 @@
+#footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  color: rgb(0, 0, 0);
+  background-color: #9dcbff;
+  border-top: 2px solid gray;
+  height: 75px;
+  width: 100vw;
+  padding: 10px;
+  font-size: 1em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
