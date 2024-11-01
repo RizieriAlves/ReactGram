@@ -101,7 +101,6 @@ export const commentPhoto = createAsyncThunk(
       return thunkAPI.rejectWithValue(data.errors[0]);
     }
 
-    console.log(data);
     return data;
   }
 );
@@ -137,6 +136,10 @@ export const photoSlice = createSlice({
   reducers: {
     resetMessage: (state) => {
       state.message = null;
+    },
+    clearPhotos: (state) => {
+      state.photo = null;
+      state.photos = [];
     },
   },
   extraReducers: (builder) => {
@@ -222,11 +225,9 @@ export const photoSlice = createSlice({
       .addCase(likePhoto.fulfilled, (state, action) => {
         state.loading = false;
         state.error = null;
-        console.log(action);
 
         const updatedPhoto = action.payload;
 
-        console.log(updatedPhoto);
         if (state.photos > 1) {
           const photoIndex = state.photos.findIndex(
             (photo) => photo._id === updatedPhoto._id
@@ -281,5 +282,5 @@ export const photoSlice = createSlice({
   },
 });
 
-export const { resetMessage } = photoSlice.actions;
+export const { resetMessage, clearPhotos } = photoSlice.actions;
 export default photoSlice.reducer;

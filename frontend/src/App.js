@@ -16,7 +16,7 @@ import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import EditProfile from "./pages/editProfile/EditProfile";
 import Profile from "./pages/Profile/Profile";
-import Photo from "./pages/Photo/Photo";
+import PhotoPage from "./pages/Photo/PhotoPage";
 
 function App() {
   const { auth, loading } = useAuth();
@@ -49,7 +49,7 @@ function App() {
             />
             <Route
               path="/photos/:id"
-              element={auth ? <Photo /> : <Navigate to="/login" />}
+              element={auth ? <PhotoPage /> : <Navigate to="/login" />}
             />
             <Route
               path="/users/:id"

@@ -30,7 +30,7 @@ const getActualData = async (res, token) => {
       return response.json();
     })
   );
-  console.log(userData);
+
   const setData = userData.reduce((map, el) => {
     map[el._id] = el;
     return map;
@@ -54,7 +54,7 @@ const getActualData = async (res, token) => {
     });
     return newphoto;
   });
-  console.log(photos);
+
   return photos;
 };
 

@@ -1,22 +1,20 @@
+import React from "react";
+
 import "./Photo.css";
 
 import { FaHeart } from "react-icons/fa6";
-import { uploads } from "../../utils/config";
+import { uploads } from "../utils/config";
 
 import { Link } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
 
 //redux
-import { commentPhoto, getPhoto, likePhoto } from "../../slices/photoSlice";
+import { commentPhoto, getPhoto, likePhoto } from "../slices/photoSlice";
 
-const Photo = () => {
-  const { id } = useParams();
-
+const PhotoComp = ({ photo }) => {
   const dispatch = useDispatch();
-  const { photo } = useSelector((state) => state.photo);
 
   //usuário logado
   const { user: userAuth } = useSelector((state) => state.auth);
@@ -37,10 +35,6 @@ const Photo = () => {
     dispatch(commentPhoto(photoData));
     setComment("");
   };
-
-  useEffect(() => {
-    dispatch(getPhoto(id));
-  }, [dispatch]);
 
   const showLikes = () => {
     setLikes(!likes);
@@ -64,10 +58,10 @@ const Photo = () => {
             <div className="toolbar">
               <span id="like">
                 {Array.isArray(photo.likes) && photo.likes.length > 0 && (
-                  <p className="black">{photo.likes.length}</p>
+                  <p className="black">{photo.likes?.length}</p>
                 )}
                 {Array.isArray(photo.likes) &&
-                photo.likes.includes(userAuth._id) ? (
+                photo.likes.includes(userAuth?._id) ? (
                   <>
                     <FaHeart
                       className="liked"
@@ -91,23 +85,22 @@ const Photo = () => {
               {Array.isArray(photo.likes) && photo.likes.length > 0 ? (
                 !likes ? (
                   <>
-                    {photo.likes.length > 1 ? (
-                      <>
-                        <p onClick={showLikes} id="likelist">
-                          <span>Curtido por:</span>
-                          {photo.likesName[0]} e mais {photo.likes.length - 1}
-                          pessoas
-                        </p>
-                      </>
+                    {photo.likes && photo.likes.length > 1 ? (
+                      <p onClick={showLikes} id="likelist">
+                        <span>Curtido por:</span>
+                        {photo.likesName && photo.likesName[0]} e mais{" "}
+                        {photo.likes.length - 1}
+                        pessoas
+                      </p>
                     ) : (
                       <span>
                         {" "}
-                        <p onClick={showLikes} id="likelist">
+                        <span onClick={showLikes} id="likelist">
                           <span>Curtido por:</span>
-                          {photo.likesName.map((likeName, index) => {
+                          {photo.likesName?.map((likeName, index) => {
                             return <p key={index}>{likeName}</p>;
                           })}
-                        </p>
+                        </span>
                       </span>
                     )}
                   </>
@@ -116,7 +109,7 @@ const Photo = () => {
                     <span id="likelist">
                       <span>Curtido por: </span>
                       <ul>
-                        {photo.likesName.map((likeName) => {
+                        {photo.likesName?.map((likeName) => {
                           return <li>{likeName}</li>;
                         })}
                       </ul>
@@ -168,4 +161,5 @@ const Photo = () => {
     </div>
   );
 };
-export default Photo;
+
+export default PhotoComp;
