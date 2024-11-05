@@ -96,10 +96,11 @@
 }
 
 .toolbar {
+  margin-top: 5px;
   padding: 5px;
   display: flex;
-  justify-content: space-evenly;
-  border-top: 1px solid var(--border);
+  justify-content: space-between;
+  border-top: 1px solid white;
   & span {
     display: flex;
     flex-direction: row;

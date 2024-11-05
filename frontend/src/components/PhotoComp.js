@@ -85,16 +85,13 @@ const PhotoComp = ({ photo }) => {
                 !likes ? (
                   <>
                     {photo.likes && photo.likes.length > 1 ? (
-                      <p onClick={showLikes} id="likelist">
+                      <span onClick={showLikes} id="likelist">
                         <span>Curtido por:</span>
                         <ul>
                           <li>{photo.likesName && photo.likesName[0]}</li>
-                          <li>
-                            e mais {photo.likes.length - 1}
-                            pessoas
-                          </li>
+                          <li>e mais {photo.likes.length - 1} pessoas</li>
                         </ul>
-                      </p>
+                      </span>
                     ) : (
                       <span>
                         {" "}
@@ -112,8 +109,8 @@ const PhotoComp = ({ photo }) => {
                     <span id="likelist">
                       <span>Curtido por: </span>
                       <ul>
-                        {photo.likesName?.map((likeName) => {
-                          return <li>{likeName}</li>;
+                        {photo.likesName?.map((likeName, index) => {
+                          return <li key={index}>{likeName}</li>;
                         })}
                       </ul>
                     </span>
@@ -139,7 +136,7 @@ const PhotoComp = ({ photo }) => {
 
             {Array.isArray(photo.comments) &&
               photo.comments.length > 0 &&
-              photo.comments.map((comment, index) => {
+              photo.comments?.map((comment, index) => {
                 return (
                   <div className="comment" key={index}>
                     <Link to={`/users/${comment.userId}`}>

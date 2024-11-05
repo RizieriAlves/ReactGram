@@ -75,7 +75,7 @@
   flex-direction: column;
   cursor: pointer;
   & * {
-    text-align: left;
+    text-align: center;
   }
 }
 
@@ -116,6 +116,10 @@
     min-height: 250px;
   }
 
+  .comment {
+    width: 100%;
+  }
+
   #comment {
     display: flex;
     justify-content: center;
@@ -142,8 +146,7 @@
   }
 
   .toolbar {
-    width: 70vw;
-    display: flex;
+    width: 100%;
   }
   h2 {
     text-align: center;
