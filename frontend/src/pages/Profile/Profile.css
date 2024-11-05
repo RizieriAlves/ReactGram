@@ -177,3 +177,56 @@
 .hide {
   display: none;
 }
+
+@media screen and (max-width: 1500px) {
+  .profile_header {
+    padding: 10px;
+    min-width: 300px;
+  }
+
+  .photouser {
+    min-width: 300px;
+  }
+
+  .userposts {
+    padding: 5px;
+  }
+
+  .postar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    & label {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .profile_header {
+    min-width: 250px;
+    min-height: 300px;
+  }
+  #profile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .userposts {
+    width: 100vw;
+    padding: 0px;
+    margin: 0;
+  }
+
+  #postpreview {
+    width: 250px;
+  }
+
+  .photouser {
+    padding: 5px;
+  }
+  .container {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}

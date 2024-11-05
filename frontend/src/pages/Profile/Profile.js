@@ -84,7 +84,6 @@ const Profile = () => {
       title: editTitle,
       id: editId,
     };
-    console.log(photoData);
     await dispatch(updatePhoto(photoData));
     setTimeout(() => {
       dispatch(resetMessage());

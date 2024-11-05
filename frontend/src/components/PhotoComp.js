@@ -31,7 +31,6 @@ const PhotoComp = ({ photo }) => {
     e.preventDefault();
 
     const photoData = { photo: photo, comment: comment };
-    console.log(photoData);
     dispatch(commentPhoto(photoData));
     setComment("");
   };
@@ -88,9 +87,13 @@ const PhotoComp = ({ photo }) => {
                     {photo.likes && photo.likes.length > 1 ? (
                       <p onClick={showLikes} id="likelist">
                         <span>Curtido por:</span>
-                        {photo.likesName && photo.likesName[0]} e mais{" "}
-                        {photo.likes.length - 1}
-                        pessoas
+                        <ul>
+                          <li>{photo.likesName && photo.likesName[0]}</li>
+                          <li>
+                            e mais {photo.likes.length - 1}
+                            pessoas
+                          </li>
+                        </ul>
                       </p>
                     ) : (
                       <span>

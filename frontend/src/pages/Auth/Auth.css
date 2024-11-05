@@ -45,3 +45,9 @@ input[type="submit"]:hover {
   color: black;
   font-size: 1.2em;
 }
+
+@media screen and (max-width: 500px) {
+  #form {
+    width: 100%;
+  }
+}

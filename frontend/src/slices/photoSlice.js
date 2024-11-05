@@ -126,6 +126,7 @@ export const searchPhotos = createAsyncThunk(
     if (data.errors) {
       return thunkAPI.rejectWithValue(data.errors[0]);
     }
+    console.log(data);
     return data;
   }
 );
@@ -273,6 +274,8 @@ export const photoSlice = createSlice({
       .addCase(searchPhotos.pending, (state) => {
         state.loading = true;
         state.error = null;
+        state.photos = [];
+        state.photo = null;
       })
       .addCase(searchPhotos.fulfilled, (state, action) => {
         state.loading = false;

@@ -42,3 +42,20 @@
   flex-direction: column;
   gap: 10px;
 }
+
+@media screen and (max-width: 400px) {
+  .container_edit {
+    width: 90vw;
+    margin: 10px auto;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+  }
+
+  #editprofile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

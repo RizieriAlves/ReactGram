@@ -83,3 +83,92 @@
   width: 20px;
   height: 20px;
 }
+
+@media screen and (max-width: 1700px) {
+  #photouser {
+    min-width: 70vw;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  #photouser {
+    min-width: 90vw;
+  }
+}
+@media screen and (max-width: 1000px) {
+  #photouser {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .photo {
+    margin: auto;
+    display: block;
+    & img {
+      border: none;
+    }
+  }
+
+  .comments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 250px;
+  }
+
+  #comment {
+    display: flex;
+    justify-content: center;
+  }
+
+  .toolbar {
+    border: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #photouser {
+    padding: 5px;
+    overflow-x: hidden;
+  }
+
+  .photo {
+    margin-top: 15px;
+  }
+  #photouser img {
+    width: 80vw;
+    margin: 0;
+    padding: 0;
+  }
+
+  .toolbar {
+    width: 70vw;
+    display: flex;
+  }
+  h2 {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #comment {
+    padding: 2px;
+
+    & input {
+      font-size: 1em;
+      padding: 2px;
+    }
+  }
+  #like {
+    font-size: 1em;
+  }
+
+  #likelist {
+    text-align: right;
+  }
+
+  #likelist * {
+    margin-left: auto;
+    text-align: right;
+  }
+}

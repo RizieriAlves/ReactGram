@@ -75,7 +75,6 @@ export const userSlice = createSlice({
         state.message = "Usuário atualizado com sucesso!";
       })
       .addCase(updateProfile.rejected, (state, action) => {
-        console.log(state, action);
         state.loading = false;
         state.error = action.payload;
         state.user = {};
